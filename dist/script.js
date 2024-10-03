@@ -48,6 +48,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_display__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/display */ "./src/js/lib/modules/display.js");
 /* harmony import */ var _modules_classes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/classes */ "./src/js/lib/modules/classes.js");
 /* harmony import */ var _modules_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/actions */ "./src/js/lib/modules/actions.js");
+/* harmony import */ var _modules_attributes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/attributes */ "./src/js/lib/modules/attributes.js");
+
 
 
 
@@ -89,6 +91,76 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handle
       this[i].addEventListener('click', handler);
     } else {
       this[i].click();
+    }
+  }
+  return this;
+};
+
+/***/ }),
+
+/***/ "./src/js/lib/modules/attributes.js":
+/*!******************************************!*\
+  !*** ./src/js/lib/modules/attributes.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.addAttribute = function (attribute, value = '') {
+  for (let i = 0; i < this.length; i++) {
+    if (this[i].classList) {
+      if (!attribute) {
+        return this;
+      }
+      this[i].setAttribute(attribute, value);
+    }
+  }
+  return this;
+};
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.getAttributeValue = function (attribute) {
+  return this[0].getAttribute(attribute);
+};
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.addAttributeValue = function (attribute, value = '') {
+  for (let i = 0; i < this.length; i++) {
+    if (this[i].classList) {
+      if (!attribute) {
+        return this;
+      }
+      if (this[i].hasAttribute(attribute)) {
+        this[i].setAttribute(attribute, value);
+      }
+    }
+  }
+  return this;
+};
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.removeAttributeValue = function (attribute, value = '') {
+  for (let i = 0; i < this.length; i++) {
+    if (!attribute) {
+      return this;
+    } else {
+      if (this[i].hasAttribute(attribute)) {
+        if (this[i].getAttribute(attribute) == value) {
+          this[i].setAttribute(attribute, value = '');
+        }
+        if (value == '' || !value) {
+          this[i].setAttribute(attribute, value = '');
+        }
+      }
+    }
+  }
+  return this;
+};
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.toggleAttributeValue = function (attribute, value) {
+  for (let i = 0; i < this.length; i++) {
+    if (this[i].classList) {
+      if (this[i].hasAttribute(attribute)) {
+        if (this[i].getAttribute(attribute) !== value) {
+          this[i].setAttribute(attribute, value);
+        } else {
+          this[i].setAttribute(attribute, value = '');
+        }
+      }
     }
   }
   return this;
@@ -251,8 +323,16 @@ __webpack_require__.r(__webpack_exports__);
 function sayHello() {
   console.log('hello');
 }
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').addAttribute('data-modal');
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').addAttributeValue('data-modal', '5');
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('div').addAttribute('data-private', 'true');
 (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').on('click', function () {
   (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])(this).hide().show().toggleClass('active');
+  console.log((0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('div').getAttributeValue('data-private'));
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-modal]').addAttribute('data-name', 'name');
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').addAttributeValue('data-name', 'new');
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').toggleAttributeValue('data-modal', 'toggle');
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-private]').removeAttributeValue('data-private', 'false');
 });
 /******/ })()
 ;
