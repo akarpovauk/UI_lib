@@ -28,11 +28,17 @@ $('button').on('click', function() {
 
 // $('button').html('YES');
 
-$('div').click(function() {
-	console.log($(this).index());
-});
+// $('div').click(function() {
+// 	console.log($(this).index());
+// });
 
 // console.log($('div').eq(2).find('.more'));
 // ($('.more').closest('.findme').addClass('hello'));
 // console.log($('.more').eq(0).siblings());
-console.log($('.findme').siblings());
+// console.log($('.findme').siblings());
+
+// $('.list').fadeOut(1800);
+// $('button').fadeOut(1800);
+
+$('button').fadeOut(2800);
+setTimeout(()=> {$('button').fadeIn(1800)}, 4000);
