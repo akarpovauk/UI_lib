@@ -14,3 +14,135 @@
 * {
   font-family: "Roboto", sans-serif;
 }
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #025fff;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #343a40;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(53, 127.2529644269, 255);
+  color: #fff;
+}
+.btn_primary {
+  background-color: #025fff;
+  border-color: #025fff;
+  color: #fff;
+}
+.btn_primary:hover {
+  background-color: rgb(0, 75.7233201581, 206);
+}
+.btn_success {
+  background-color: #2a9924;
+  border-color: #2a9924;
+  color: #fff;
+}
+.btn_success:hover {
+  background-color: rgb(30.6666666667, 111.7142857143, 26.2857142857);
+}
+.btn_danger {
+  background-color: #ea2e41;
+  border-color: #ea2e41;
+  color: #fff;
+}
+.btn_danger:hover {
+  background-color: rgb(208.0913043478, 20.9086956522, 39.8260869565);
+}
+.btn_warning {
+  background-color: #ffc907;
+  border-color: #ffc907;
+  color: #fff;
+}
+.btn_warning:hover {
+  background-color: rgb(211, 165.0564516129, 0);
+}
+.btn_dark {
+  background-color: #343a40;
+  border-color: #343a40;
+  color: #fff;
+}
+.btn_dark:hover {
+  background-color: rgb(29.1379310345, 32.5, 35.8620689655);
+}
+.btn_outline-primary {
+  border-color: #025fff;
+  color: #025fff;
+}
+.btn_outline-primary:hover {
+  background-color: #025fff;
+}
+.btn_outline-success {
+  border-color: #2a9924;
+  color: #2a9924;
+}
+.btn_outline-success:hover {
+  background-color: #2a9924;
+}
+.btn_outline-danger {
+  border-color: #ea2e41;
+  color: #ea2e41;
+}
+.btn_outline-danger:hover {
+  background-color: #ea2e41;
+}
+.btn_outline-warning {
+  border-color: #ffc907;
+  color: #ffc907;
+}
+.btn_outline-warning:hover {
+  background-color: #ffc907;
+}
+.btn_outline-dark {
+  border-color: #343a40;
+  color: #343a40;
+}
+.btn_outline-dark:hover {
+  background-color: #343a40;
+}
+.btn_block {
+  display: block;
+  width: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.d-non {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.f-centered {
+  justify-content: center;
+  align-items: center;
+}
+
+.f-space-around {
+  justify-content: space-around;
+}
+
+.f-space-between {
+  justify-content: space-between;
+}
