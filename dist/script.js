@@ -514,10 +514,8 @@ __webpack_require__.r(__webpack_exports__);
 // $('.list').fadeOut(1800);
 // $('button').fadeOut(1800);
 
-(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').fadeOut(2800);
-setTimeout(() => {
-  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').fadeIn(1800);
-}, 4000);
+// $('button').fadeOut(2800);
+// setTimeout(()=> {$('button').fadeIn(1800)}, 4000);
 /******/ })()
 ;
 //# sourceMappingURL=script.js.map

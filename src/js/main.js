@@ -40,5 +40,5 @@ $('button').on('click', function() {
 // $('.list').fadeOut(1800);
 // $('button').fadeOut(1800);
 
-$('button').fadeOut(2800);
-setTimeout(()=> {$('button').fadeIn(1800)}, 4000);
+// $('button').fadeOut(2800);
+// setTimeout(()=> {$('button').fadeIn(1800)}, 4000);
