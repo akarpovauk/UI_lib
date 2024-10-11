@@ -15,16 +15,16 @@ import $ from './lib/lib';
 // $('button').addAttributeValue('data-modal', '5');
 // $('div').addAttribute('data-private', 'true');
 
-$('button').on('click', function() { 
-	// $(this).hide().show().toggleClass('active');
-	// console.log($('div').getAttributeValue('data-private'));
+// $('button').on('click', function() { 
+// 	// $(this).hide().show().toggleClass('active');
+// 	// console.log($('div').getAttributeValue('data-private'));
 
-	// $('[data-modal]').addAttribute('data-name', 'name');
-	// $('button').addAttributeValue('data-name', 'new');
-	// $('button').toggleAttributeValue('data-modal', 'toggle');
-	// $('[data-private]').removeAttributeValue('data-private', 'false');
-	$('div').eq(1).toggleClass('active');
-});
+// 	// $('[data-modal]').addAttribute('data-name', 'name');
+// 	// $('button').addAttributeValue('data-name', 'new');
+// 	// $('button').toggleAttributeValue('data-modal', 'toggle');
+// 	// $('[data-private]').removeAttributeValue('data-private', 'false');
+// 	$('div').eq(1).toggleClass('active');
+// });
 
 // $('button').html('YES');
 
@@ -42,3 +42,15 @@ $('button').on('click', function() {
 
 // $('button').fadeOut(2800);
 // setTimeout(()=> {$('button').fadeIn(1800)}, 4000);
+
+$('#first').on('click', ()=> {
+	$('section div').eq(0).fadeToggle(800);
+}) 
+
+$('[data-count="second"]').on('click', ()=> {
+	$('section div').eq(1).fadeToggle(800);
+}) 
+
+$('section.test button').eq(2).on('click', ()=> {
+	$('section div.w-500px').fadeToggle(800);
+}) 

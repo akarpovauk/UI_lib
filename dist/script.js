@@ -367,6 +367,16 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeOut = function (dur,
   }
   return this;
 };
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeToggle = function (dur, display, fin) {
+  for (let i = 0; i < this.length; i++) {
+    if (window.getComputedStyle(this[i]).display === 'none') {
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).fadeIn(dur);
+    } else {
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).fadeOut(dur, display, fin);
+    }
+  }
+  return this;
+};
 
 /***/ }),
 
@@ -489,16 +499,16 @@ __webpack_require__.r(__webpack_exports__);
 // $('button').addAttributeValue('data-modal', '5');
 // $('div').addAttribute('data-private', 'true');
 
-(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').on('click', function () {
-  // $(this).hide().show().toggleClass('active');
-  // console.log($('div').getAttributeValue('data-private'));
+// $('button').on('click', function() { 
+// 	// $(this).hide().show().toggleClass('active');
+// 	// console.log($('div').getAttributeValue('data-private'));
 
-  // $('[data-modal]').addAttribute('data-name', 'name');
-  // $('button').addAttributeValue('data-name', 'new');
-  // $('button').toggleAttributeValue('data-modal', 'toggle');
-  // $('[data-private]').removeAttributeValue('data-private', 'false');
-  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('div').eq(1).toggleClass('active');
-});
+// 	// $('[data-modal]').addAttribute('data-name', 'name');
+// 	// $('button').addAttributeValue('data-name', 'new');
+// 	// $('button').toggleAttributeValue('data-modal', 'toggle');
+// 	// $('[data-private]').removeAttributeValue('data-private', 'false');
+// 	$('div').eq(1).toggleClass('active');
+// });
 
 // $('button').html('YES');
 
@@ -516,6 +526,16 @@ __webpack_require__.r(__webpack_exports__);
 
 // $('button').fadeOut(2800);
 // setTimeout(()=> {$('button').fadeIn(1800)}, 4000);
+
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('#first').on('click', () => {
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section div').eq(0).fadeToggle(800);
+});
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-count="second"]').on('click', () => {
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section div').eq(1).fadeToggle(800);
+});
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section.test button').eq(2).on('click', () => {
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section div.w-500px').fadeToggle(800);
+});
 /******/ })()
 ;
 //# sourceMappingURL=script.js.map

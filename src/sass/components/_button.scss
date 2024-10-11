@@ -13,7 +13,8 @@
 	transition: all 0.2s;
 	cursor: pointer;
 	&:hover {
-		background-color: lighten($primary, 10%);
+		// background-color: darken($primary, 10%);
+		background-color: color.adjust($color: $primary, $lightness: -10%);
 		color: #fff;
 	}
 	&_primary {
@@ -21,7 +22,7 @@
 		border-color: $primary;
 		color: #fff;
 		&:hover {
-			background-color: darken($primary, 10%);
+			background-color: color.adjust($primary, $lightness: -10%);
 		}
 	}
 	&_success {
@@ -29,7 +30,7 @@
 		border-color: $success;
 		color: #fff;
 		&:hover {
-			background-color: darken($success, 10%);
+			background-color: color.adjust($success, $lightness: -10%);
 		}
 	}
 	&_danger {
@@ -37,7 +38,7 @@
 		border-color: $danger;
 		color: #fff;
 		&:hover {
-			background-color: darken($danger, 10%);
+			background-color: color.adjust($danger, $lightness: -10%);
 		}
 	}
 	&_warning {
@@ -45,7 +46,7 @@
 		border-color: $warning;
 		color: #fff;
 		&:hover {
-			background-color: darken($warning, 10%);
+			background-color: color.adjust($warning, $lightness: -10%);
 		}
 	}
 	&_dark {
@@ -53,7 +54,7 @@
 		border-color: $dark;
 		color: #fff;
 		&:hover {
-			background-color: darken($dark, 10%);
+			background-color: color.adjust($dark, $lightness: -10%);
 		}
 	}
 	&_outline-primary {
