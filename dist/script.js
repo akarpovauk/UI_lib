@@ -346,6 +346,8 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeIn = function (dur, 
     this[i].style.display = display || 'block';
     let startOpacity = this[i].style.opacity === '' ? 0 : Number(this[i].style.opacity);
     const _fadeIn = completion => {
+      // this[i].style.display = display || 'block';
+      // let startOpacity = this[i].style.opacity === '' ? 0 : Number(this[i].style.opacity);
       this[i].style.opacity = Math.min(completion + startOpacity, 1);
     };
     const animate = this.animateOverTime(dur, _fadeIn, fin);

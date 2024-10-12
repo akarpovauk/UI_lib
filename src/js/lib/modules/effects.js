@@ -31,6 +31,8 @@ $.prototype.fadeIn = function(dur, display, fin) {
 		let startOpacity = this[i].style.opacity === '' ? 0 : Number(this[i].style.opacity);
 
 		const _fadeIn = (completion) => {
+			// this[i].style.display = display || 'block';
+			// let startOpacity = this[i].style.opacity === '' ? 0 : Number(this[i].style.opacity);
 			this[i].style.opacity = Math.min(completion + startOpacity, 1);
 		}
 
