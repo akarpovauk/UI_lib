@@ -1,9 +1,9 @@
 import $ from '../core';
 /** 
- * dropdown menu:
- * click the button triggers show/hide submenu
- * 
+ * @name dropdown
+ * @description click the element triggers show/hide submenu
  */
+
 $.prototype.dropdown = function() {
 	for (let i = 0; i < this.length; i++) {
 		const id = $(this[i]).getAttributeValue('id');

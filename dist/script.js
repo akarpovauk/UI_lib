@@ -12,10 +12,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
 
 /** 
- * dropdown menu:
- * click the button triggers show/hide submenu
- * 
+ * @name dropdown
+ * @description click the element triggers show/hide submenu
  */
+
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.dropdown = function () {
   for (let i = 0; i < this.length; i++) {
     const id = (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).getAttributeValue('id');
