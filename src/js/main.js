@@ -43,6 +43,8 @@ import $ from './lib/lib';
 // $('button').fadeOut(2800);
 // setTimeout(()=> {$('button').fadeIn(1800)}, 4000);
 
+//buttons hide show text
+
 $('#first').on('click', ()=> {
 	$('section div').eq(0).fadeToggle(800);
 }) 
@@ -51,6 +53,32 @@ $('[data-count="second"]').on('click', ()=> {
 	$('section div').eq(1).fadeToggle(800);
 }) 
 
-$('section.test button').eq(2).on('click', ()=> {
+$('section.fadeToggle button').eq(2).on('click', ()=> {
 	$('section div.w-500px').fadeToggle(800);
 }) 
+
+// console.log($('.dropdown-toggle').getAttributeValue('id'));
+
+//dropdown menu dynamicly generated:
+/* $('.wrapper-dropdown').html(
+	`
+	<div class="dropdown">
+		<button class="btn btn_primary dropdown-toggle" id='dropdownMenuButton'>Dropdown button</button>
+		<ul class="dropdown-list" data-toggle-id="dropdownMenuButton">
+			<li class="dropdown-item"><a href="#">Action #1</a></li>
+			<li class="dropdown-item"><a href="#">Action #2</a></li>
+			<li class="dropdown-item"><a href="#">Action #3</a></li>
+		</ul>
+	</div>
+	<div class="dropdown">
+		<button class="btn btn_primary dropdown-toggle" id='dropdownMenu2Button'>Dropdown button</button>
+		<ul class="dropdown-list" data-toggle-id="dropdownMenu2Button">
+			<li class="dropdown-item"><a href="#">Action #1</a></li>
+			<li class="dropdown-item"><a href="#">Action #2</a></li>
+			<li class="dropdown-item"><a href="#">Action #3</a></li>
+		</ul>
+	</div>
+	`
+)
+$('.dropdown-toggle').dropdown(); */
+

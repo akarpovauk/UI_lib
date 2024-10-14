@@ -139,6 +139,7 @@
   border-radius: 2px;
   background-color: #fff;
   padding: 10px 0;
+  display: none;
 }
 .dropdown-item {
   display: block;
