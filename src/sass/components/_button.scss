@@ -1,28 +1,42 @@
 .btn {
 	display: inline-block;
 	padding: 10px 20px;
-	border: 1px solid $primary;
 	border-radius: 4px;
-	background-color: transparent;
-	color: $dark;
 	text-align: center;
 	vertical-align: middle;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 1.5;
+	color: $primary;
+	border: 1px solid $primary;
+	background-color: transparent;
 	transition: all 0.2s;
 	cursor: pointer;
 	&:hover {
 		// background-color: darken($primary, 10%);
-		background-color: color.adjust($color: $primary, $lightness: -10%);
-		color: #fff;
+		background-color: color.adjust($primary, $lightness: -10%);
+		color: $basic;
+	}
+	&:focus-visible {
+		background-color: color.adjust($primary, $lightness: -20%);
+		color: $basic;
+	}
+	&:active {
+		background-color: color.adjust($primary, $lightness: -20%);
+		color: $basic;
 	}
 	&_primary {
 		background-color: $primary;
 		border-color: $primary;
-		color: #fff;
+		color: $basic;
 		&:hover {
 			background-color: color.adjust($primary, $lightness: -10%);
+		}
+		&:focus-visible {
+			background-color: color.adjust($primary, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($primary, $lightness: -20%);
 		}
 	}
 	&_success {
@@ -30,7 +44,13 @@
 		border-color: $success;
 		color: #fff;
 		&:hover {
-			background-color: color.adjust($success, $lightness: -10%);
+			background-color: color.adjust($color: $success, $lightness: -10%);
+		}
+		&:focus-visible {
+			background-color: color.adjust($color: $success, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($color: $success, $lightness: -20%);
 		}
 	}
 	&_danger {
@@ -40,6 +60,12 @@
 		&:hover {
 			background-color: color.adjust($danger, $lightness: -10%);
 		}
+		&:focus-visible {
+			background-color: color.adjust($danger, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($danger, $lightness: -20%);
+		}
 	}
 	&_warning {
 		background-color: $warning;
@@ -47,6 +73,12 @@
 		color: #fff;
 		&:hover {
 			background-color: color.adjust($warning, $lightness: -10%);
+		}
+		&:focus-visible {
+			background-color: color.adjust($warning, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($warning, $lightness: -20%);
 		}
 	}
 	&_dark {
@@ -56,12 +88,24 @@
 		&:hover {
 			background-color: color.adjust($dark, $lightness: -10%);
 		}
+		&:focus-visible {
+			background-color: color.adjust($dark, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($dark, $lightness: -20%);
+		}
 	}
 	&_outline-primary {
 		border-color: $primary;
 		color: $primary;
 		&:hover {
 			background-color: $primary;
+		}
+		&:focus-visible {
+			background-color: color.adjust($primary, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($primary, $lightness: -20%);
 		}
 	}
 	&_outline-success {
@@ -70,12 +114,24 @@
 		&:hover {
 			background-color: $success;
 		}
+		&:focus-visible {
+			background-color: color.adjust($success, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($success, $lightness: -20%);
+		}
 	}
 	&_outline-danger {
 		border-color: $danger;
 		color: $danger;
 		&:hover {
 			background-color: $danger;
+		}
+		&:focus-visible {
+			background-color: color.adjust($danger, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($danger, $lightness: -20%);
 		}
 	}
 	&_outline-warning {
@@ -84,12 +140,24 @@
 		&:hover {
 			background-color: $warning;
 		}
+		&:focus-visible {
+			background-color: color.adjust($warning, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($warning, $lightness: -20%);
+		}
 	}
 	&_outline-dark {
 		border-color: $dark;
 		color: $dark;
 		&:hover {
 			background-color: $dark;
+		}
+		&:focus-visible {
+			background-color: color.adjust($dark, $lightness: -20%);
+		}
+		&:active {
+			background-color: color.adjust($dark, $lightness: -20%);
 		}
 	}
 	&_block {

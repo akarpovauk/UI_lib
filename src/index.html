@@ -11,22 +11,23 @@
 	<div class="container">
 		<section class="m-20" data-name="buttons examples">
 			<button class ='btn' data-private='false'>btn</button>
-			<button class ='btn btn_primary' data-private='false'>primary</button>
-			<button class ='btn btn_success' data-private='false'>success</button>
-			<button class ='btn btn_danger' data-private='false'>danger</button>
-			<button class ='btn btn_warning' data-private='false'>warning</button>
-			<button class ='btn btn_dark' data-private='false'>dark</button>
+			<button class ='btn btn_primary'>primary</button>
+			<button class ='btn btn_success'>success</button>
+			<button class ='btn btn_danger'>danger</button>
+			<button class ='btn btn_warning'>warning</button>
+			<button class ='btn btn_dark'>dark</button>
 			<hr class="mt-10 mb-10">
-			<button class ='btn btn_outline-primary' data-private='false'>primary</button>
-			<button class ='btn btn_outline-success' data-private='false'>success</button>
-			<button class ='btn btn_outline-danger' data-private='false'>danger</button>
-			<button class ='btn btn_outline-warning' data-private='false'>warning</button>
-			<button class ='btn btn_outline-dark' data-private='false'>dark</button>
+			<button class ='btn btn_outline-primary'>primary</button>
+			<button class ='btn btn_outline-success'>success</button>
+			<button class ='btn btn_outline-danger'>danger</button>
+			<button class ='btn btn_outline-warning'>warning</button>
+			<button class ='btn btn_outline-dark'>dark</button>
 		</section>
+
 		<section class="fadeToggle"data-name="fadeToggle section example">
-			<button class ='btn btn_primary m-20' id = 'first'>fade out first text</button>
-			<button class ='btn btn_dark m-20' data-count = 'second'>fade out second text</button>
-			<button class ='btn btn_warning m-20' data-private='false'>fade out all texts</button>
+			<button class ='btn btn_primary m-20' id='first'>fade out first text</button>
+			<button class ='btn btn_dark m-20' data-count='second'>fade out second text</button>
+			<button class ='btn btn_warning m-20'>fade out all texts</button>
 			<div class="w-500px block-center mt-20 text-color-primary">
 				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet nam excepturi suscipit beatae voluptatem doloremque debitis corrupti quaerat 
 			</div>
@@ -34,6 +35,7 @@
 				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet nam excepturi suscipit beatae voluptatem doloremque debitis corrupti quaerat repellendus ipsum autem quam sed quibusdam, nobis magni 
 			</div>
 		</section>
+
 		<section class="m-20" data-name="dropdown-menu">
 			<div class="wrapper-dropdown" data-comment='for dynamicly generated'></div>
 			<div class="dropdown">
@@ -53,11 +55,12 @@
 				</ul>
 			</div>
 		</section>
+
 		<section class="m-20 d-flex f-space-around" data-name="card">
 			<article class="card">
 				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
 				<div class="card-body">
-					<h3 class="card-title">Card title</h3>
+					<h3 class="card-title">Card title 1</h3>
 					<p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
 					<a href="#" class="btn btn_primary">Link to</a>
 				</div>
@@ -65,11 +68,35 @@
 			<article class="card">
 				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
 				<div class="card-body">
-					<h3 class="card-title">Card title</h3>
+					<h3 class="card-title">Card title 2</h3>
 					<p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
 					<a href="#" class="btn btn_primary">Link to</a>
 				</div>
 			</article>
+		</section>
+
+		<section  data-name="modal window">
+			<dialog class="modal" id="exampleModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<button class="close" data-close aria-label="close">
+							<span>&times;</span>
+						</button>
+						<div class="modal-header" aria-label="title">
+							<h3 class="modal-title">
+								Modal title
+							</h3>
+						</div>
+						<div class="modal-body">
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, molestias incidunt? Molestias, quia reprehenderit! Nesciunt ex quas adipisci nihil ipsa, aliquam odit similique autem illo voluptatibus sed, laboriosam deserunt dolor?
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn_danger" data-close aria-label="close">Close</button>
+							<button class="btn btn_success"data-close>Save changes</button>
+						</div>
+					</div>
+				</div>
+			</dialog>
 		</section>
 
 	</div>
