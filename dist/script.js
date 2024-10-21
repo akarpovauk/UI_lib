@@ -12,7 +12,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
 
 /** 
- * @name dropdown
  * @description click the element triggers show/hide submenu
  */
 
@@ -25,6 +24,330 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.dropdown = function () {
   }
 };
 (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.dropdown-toggle').dropdown(); //initialisation of dropdown method for static html page
+
+/***/ }),
+
+/***/ "./src/js/lib/components/modal.js":
+/*!****************************************!*\
+  !*** ./src/js/lib/components/modal.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+
+/** modal created by Dialog element
+ * @description open model window by clicking on trigger;
+ * trigger must have attributes data-toggle=“modal” and data-target;
+ * data-target should be the same as modal id 
+ */
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.showModal = function () {
+  return this[0].showModal();
+};
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.closeModal = function () {
+  return this[0].close();
+};
+
+// $.prototype.openModal = function() {
+// 	for (let i = 0; i < this.length; i++) {
+// 		// target - это id модального окна, которое должно быть открыто
+// 		const target = this[i].getAttribute('data-target');
+// 		$(this[i]).click((e) => {
+// 			e.preventDefault();
+// 			$(target).showModal();
+// 		});
+// 	};
+// };
+
+// $.prototype.closeModal = function() {
+// 	for (let i = 0; i < this.length; i++) {
+// 		$(this[i]).find('[data-close]').click(() => {
+// 			this[i].close();
+// 		});
+// 		//close modal by click outside the window
+// 		$(this[i]).click(e => {
+// 			if (e.target === e.currentTarget) {
+// 				this[i].close();
+// 			}
+// 		});
+// 	};
+// };
+
+// $('[data-toggle="modal-dialog"]').openModal();
+// $('.modal').closeModal();
+
+/** open modal window created with DIALOG element
+ * @description open model window by clicking on trigger;
+ * trigger must have attributes data-toggle=“modal” and data-target;
+ * data-target should be the same as modal id 
+ */
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modalDialog = function (created) {
+  for (let i = 0; i < this.length; i++) {
+    // target - это id модального окна, которое должно быть открыто
+    const target = this[i].getAttribute('data-target');
+    // console.log(this[i]);
+    // console.log($(target));
+
+    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).click(e => {
+      // open modal 
+      e.preventDefault();
+      // console.log($(target));
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).showModal();
+    });
+    //close modal by click on close buttons
+    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).find('[data-close]').click(() => {
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).closeModal();
+      if (created) {
+        document.querySelector(target).remove();
+      }
+    });
+
+    //close modal by click outside the window
+    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).click(e => {
+      // console.log(e.target);
+      if (e.target === e.currentTarget) {
+        (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).closeModal();
+        if (created) {
+          document.querySelector(target).remove();
+        }
+      }
+    });
+    if (created) {
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).on('keydown', e => {
+        if (e.key === "Escape") {
+          console.log("Нажата Esc – пора на свободу!");
+          document.querySelector(target).remove();
+        }
+      });
+    }
+  }
+  ;
+};
+(0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-toggle="modal-dialog"]').modalDialog();
+
+/** create DIALOG window dynamicly
+ * запускается на кнопках-триггерах, у триггеров должен быть 
+ * атрибут data-target равный id модального окна} param0 
+ */
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.createModalDialog = function ({
+  text,
+  btns
+} = {}) {
+  // modal dialog window creation: создаём этот элемент <dialog class="modal" id="exampleModal1">
+  let modal = document.createElement('dialog');
+  modal.classList.add('modal');
+
+  //get attribute from trigger button (string) and remove #
+  modal.setAttribute('id', this[0].getAttribute('data-target').slice(1));
+
+  /** create buttons
+   *  btns = {settings: [[text, className = [], close, cb]]}
+   * j - порядковый номер кнопки
+   */
+  const buttons = [];
+  for (let j = 0; j < btns.settings.length; j++) {
+    let [text, className, close, cb] = btns.settings[j];
+    let btn = document.createElement('button');
+    btn.classList.add('btn', ...className);
+    btn.textContent = text;
+    //атрибут close
+    if (close) {
+      btn.setAttribute('data-close', 'true');
+    }
+    if (cb && typeof cb === 'function') {
+      btn.addEventListener('click', cb);
+    }
+    buttons.push(btn);
+  }
+
+  // add content to modal window
+  modal.innerHTML = `
+		<button class="close" data-close aria-label="close">
+			<span>&times;</span>
+		</button>
+		<div class="modal-header" aria-label="title">
+			<h3 class="modal-title">${text.title}</h3>
+		</div>
+		<div class="modal-body">${text.body}</div>
+		<div class="modal-footer">
+		</div>
+	`;
+
+  // add buttons to footer
+  modal.querySelector('.modal-footer').append(...buttons);
+  document.body.appendChild(modal);
+
+  // вызов модального окна
+  (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[0]).modalDialog(true);
+  (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[0].getAttribute('data-target')).showModal();
+};
+
+/** modal created by div element
+ * 
+ */
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modalDiv = function (created) {
+  for (let i = 0; i < this.length; i++) {
+    // target - это id модального окна, которое должно быть открыто
+    const target = this[i].getAttribute('data-target');
+
+    // show modal window
+    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).click(e => {
+      e.preventDefault();
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeIn(500);
+      document.body.style.overflow = 'hidden';
+    });
+
+    //close modal by click on close button 	
+    const closeElements = document.querySelectorAll(`${target} [data-close]`);
+    closeElements.forEach(elem => {
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(elem).click(() => {
+        (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(500);
+        document.body.style.overflow = '';
+        if (created) {
+          document.querySelector(target).remove();
+        }
+      });
+    });
+    //close modal by click outside modal window
+    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).click(e => {
+      if (e.target.classList.contains('modal-div')) {
+        (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(500);
+        document.body.style.overflow = '';
+        if (created) {
+          document.querySelector(target).remove();
+        }
+      }
+    });
+  }
+};
+(0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-toggle="modal-div"]').modalDiv();
+
+/** create DIV modal window dynamically, 
+ * по клику на элементах-триггерах, которое 
+ * привязано чётко к этому триггеру
+ * BUG  - генерится много окон
+ */
+// $.prototype.createModalDiv = function({text, btns} = {}) {
+// 	for (let i = 0; i < this.length; i++) {
+
+// 		let modal = document.createElement('div');
+// 		modal.classList.add('modal-div');
+// 		//get attribute from trigger button (string) and remove #
+// 		modal.setAttribute('id', this[i].getAttribute('data-target').slice(1));
+
+// 		// create buttons
+// 		// btns = {settings: [[text, className = [], close, cb]]}
+// 		// [j] - номер кнопки
+// 		const buttons = [];
+// 		for (let j = 0; j < btns.settings.length; j++) {
+// 			let [text, className, close, cb] = btns.settings[j]
+// 			let btn = document.createElement('button');
+
+// 			btn.classList.add('btn', ...className);
+// 			btn.textContent = text;
+// 			//атрибут close
+// 			if (close) {
+// 				btn.setAttribute('data-close', 'true');
+// 			}
+// 			// cb
+// 			if (cb && typeof(cb) === 'function') {
+// 				btn.addEventListener('click', cb);
+// 			}
+
+// 			buttons.push(btn);
+// 		}
+
+// 		// add content to modal window
+// 		modal.innerHTML = `
+// 			<div class="modal-div-dialog">
+// 				<div class="modal-div-content">
+// 					<button class="close" data-close aria-label="close">
+// 						<span>&times;</span>
+// 					</button>
+// 					<div class="modal-div-header" aria-label="title">
+// 						<h3 class="modal-div-title">
+// 							${text.title}
+// 						</h3>
+// 					</div>
+// 					<div class="modal-div-body">${text.body}</div>
+// 					<div class="modal-div-footer"></div>
+// 				</div>
+// 			</div>
+// 		`;
+// 		// add buttons to footer
+// 		modal.querySelector('.modal-div-footer').append(...buttons);
+// 		document.body.appendChild(modal);
+
+// 		// вызов модального окна
+// 		$(this[i]).modalDiv(true);
+// 		$(this[i].getAttribute('data-target')).fadeIn(500);
+// 	}
+// };
+
+/** create DIV modal window dynamically, 
+ * по клику на элементах-триггерах, которое 
+ * привязано чётко к этому триггеру
+ */
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.createModalDiv = function ({
+  text,
+  btns
+} = {}) {
+  let modal = document.createElement('div');
+  modal.classList.add('modal-div');
+
+  //get attribute from trigger button (string) and remove #
+  modal.setAttribute('id', this[0].getAttribute('data-target').slice(1));
+
+  /** create buttons
+   * btns = {settings: [[text, className = [], close, cb]]}
+   * [j] - номер кнопки
+   */
+  const buttons = [];
+  for (let j = 0; j < btns.settings.length; j++) {
+    let [text, className, close, cb] = btns.settings[j];
+    let btn = document.createElement('button');
+    btn.classList.add('btn', ...className);
+    btn.textContent = text;
+
+    //атрибут close
+    if (close) {
+      btn.setAttribute('data-close', 'true');
+    }
+
+    // cb
+    if (cb && typeof cb === 'function') {
+      btn.addEventListener('click', cb);
+    }
+    buttons.push(btn);
+  }
+
+  // add content to modal window
+  modal.innerHTML = `
+		<div class="modal-div-dialog">
+			<div class="modal-div-content">
+				<button class="close" data-close aria-label="close">
+					<span>&times;</span>
+				</button>
+				<div class="modal-div-header" aria-label="title">
+					<h3 class="modal-div-title">
+						${text.title}
+					</h3>
+				</div>
+				<div class="modal-div-body">${text.body}</div>
+				<div class="modal-div-footer"></div>
+			</div>
+		</div>
+	`;
+
+  // add buttons to footer
+  modal.querySelector('.modal-div-footer').append(...buttons);
+  document.body.appendChild(modal);
+
+  // вызов модального окна
+  (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[0]).modalDiv(true);
+  (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[0].getAttribute('data-target')).fadeIn(500);
+};
 
 /***/ }),
 
@@ -78,6 +401,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/actions */ "./src/js/lib/modules/actions.js");
 /* harmony import */ var _modules_effects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/effects */ "./src/js/lib/modules/effects.js");
 /* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/lib/components/dropdown.js");
+/* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/modal */ "./src/js/lib/components/modal.js");
+
 
 
 
@@ -559,15 +884,17 @@ __webpack_require__.r(__webpack_exports__);
 
 //buttons hide show text
 
-(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('#first').on('click', () => {
-  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section div').eq(0).fadeToggle(800);
-});
-(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-count="second"]').on('click', () => {
-  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section div').eq(1).fadeToggle(800);
-});
-(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section.fadeToggle button').eq(2).on('click', () => {
-  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section div.w-500px').fadeToggle(800);
-});
+// $('#first').on('click', ()=> {
+// 	$('section div').eq(0).fadeToggle(800);
+// }) 
+
+// $('[data-count="second"]').on('click', ()=> {
+// 	$('section div').eq(1).fadeToggle(800);
+// }) 
+
+// $('section.fadeToggle button').eq(2).on('click', ()=> {
+// 	$('section div.w-500px').fadeToggle(800);
+// }) 
 
 // console.log($('.dropdown-toggle').getAttributeValue('id'));
 
@@ -593,6 +920,78 @@ __webpack_require__.r(__webpack_exports__);
 	`
 )
 $('.dropdown-toggle').dropdown(); */
+
+//create modal DIV window dynamicly
+// $('[data-toggle="modal-div"]').on('click', (e) => {
+// 	console.log($(e.target));
+// 	$(e.target).createModalDiv({
+// 		text: {
+// 			title: 'Modal title',
+// 			body: 'This modal window has been created on clickin the trigger button just using only JS'
+// 		},
+// 		btns: {
+// 			settings: [
+// 				[
+// 					'Close',
+// 					['btn_danger', 'mr-10'],
+// 					true
+// 				],
+// 				[
+// 					'Save changes',
+// 					['btn_success'],
+// 					false,
+// 					() => {
+// 						alert('data has been saved!');
+// 					}
+// 				],
+// 				[
+// 					'Some button',
+// 					['btn_warning', 'ml-10'],
+// 					false,
+// 					() => {
+// 						alert('data NOT saved!');
+// 					}
+// 				]
+// 			]
+// 		}
+// 	})
+// });
+
+// create modal DIALOG window dynamicly
+// $('[data-toggle="modal-dialog"]').on('click', (e) => {
+// 	// console.log($(e.target));
+// 	$(e.target).createModalDialog({
+// 		text: {
+// 			title: 'Modal dialog title',
+// 			body: 'This modal window has been created on clickin the trigger button just using only JS'
+// 		},
+// 		btns: {
+// 			settings: [
+// 				[
+// 					'Close',
+// 					['btn_danger', 'mr-10'],
+// 					true
+// 				],
+// 				[
+// 					'Save changes',
+// 					['btn_success'],
+// 					false,
+// 					() => {
+// 						alert('data has been saved!');
+// 					}
+// 				],
+// 				[
+// 					'Some button',
+// 					['btn_warning', 'ml-10'],
+// 					false,
+// 					() => {
+// 						alert('data NOT saved!');
+// 					}
+// 				]
+// 			]
+// 		}
+// 	})
+// });
 /******/ })()
 ;
 //# sourceMappingURL=script.js.map

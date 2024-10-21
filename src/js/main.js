@@ -45,17 +45,17 @@ import $ from './lib/lib';
 
 //buttons hide show text
 
-$('#first').on('click', ()=> {
-	$('section div').eq(0).fadeToggle(800);
-}) 
+// $('#first').on('click', ()=> {
+// 	$('section div').eq(0).fadeToggle(800);
+// }) 
 
-$('[data-count="second"]').on('click', ()=> {
-	$('section div').eq(1).fadeToggle(800);
-}) 
+// $('[data-count="second"]').on('click', ()=> {
+// 	$('section div').eq(1).fadeToggle(800);
+// }) 
 
-$('section.fadeToggle button').eq(2).on('click', ()=> {
-	$('section div.w-500px').fadeToggle(800);
-}) 
+// $('section.fadeToggle button').eq(2).on('click', ()=> {
+// 	$('section div.w-500px').fadeToggle(800);
+// }) 
 
 // console.log($('.dropdown-toggle').getAttributeValue('id'));
 
@@ -82,3 +82,74 @@ $('section.fadeToggle button').eq(2).on('click', ()=> {
 )
 $('.dropdown-toggle').dropdown(); */
 
+//create modal DIV window dynamicly
+// $('[data-toggle="modal-div"]').on('click', (e) => {
+// 	console.log($(e.target));
+// 	$(e.target).createModalDiv({
+// 		text: {
+// 			title: 'Modal title',
+// 			body: 'This modal window has been created on clickin the trigger button just using only JS'
+// 		},
+// 		btns: {
+// 			settings: [
+// 				[
+// 					'Close',
+// 					['btn_danger', 'mr-10'],
+// 					true
+// 				],
+// 				[
+// 					'Save changes',
+// 					['btn_success'],
+// 					false,
+// 					() => {
+// 						alert('data has been saved!');
+// 					}
+// 				],
+// 				[
+// 					'Some button',
+// 					['btn_warning', 'ml-10'],
+// 					false,
+// 					() => {
+// 						alert('data NOT saved!');
+// 					}
+// 				]
+// 			]
+// 		}
+// 	})
+// });
+
+// create modal DIALOG window dynamicly
+// $('[data-toggle="modal-dialog"]').on('click', (e) => {
+// 	// console.log($(e.target));
+// 	$(e.target).createModalDialog({
+// 		text: {
+// 			title: 'Modal dialog title',
+// 			body: 'This modal window has been created on clickin the trigger button just using only JS'
+// 		},
+// 		btns: {
+// 			settings: [
+// 				[
+// 					'Close',
+// 					['btn_danger', 'mr-10'],
+// 					true
+// 				],
+// 				[
+// 					'Save changes',
+// 					['btn_success'],
+// 					false,
+// 					() => {
+// 						alert('data has been saved!');
+// 					}
+// 				],
+// 				[
+// 					'Some button',
+// 					['btn_warning', 'ml-10'],
+// 					false,
+// 					() => {
+// 						alert('data NOT saved!');
+// 					}
+// 				]
+// 			]
+// 		}
+// 	})
+// });

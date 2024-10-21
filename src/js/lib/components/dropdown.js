@@ -1,6 +1,5 @@
 import $ from '../core';
 /** 
- * @name dropdown
  * @description click the element triggers show/hide submenu
  */
 

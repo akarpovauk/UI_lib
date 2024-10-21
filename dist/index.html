@@ -61,45 +61,130 @@
 				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
 				<div class="card-body">
 					<h3 class="card-title">Card title 1</h3>
-					<p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
-					<a href="#" class="btn btn_primary">Link to</a>
+					<p class="card-text"> Modal dialog: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
+					<a href="#" class="btn btn_primary test" data-toggle="modal-dialog" data-target="#exampleModal1">Link to</a>
 				</div>
 			</article>
+
 			<article class="card">
 				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
 				<div class="card-body">
 					<h3 class="card-title">Card title 2</h3>
-					<p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
-					<a href="#" class="btn btn_primary">Link to</a>
+					<p class="card-text">Modal dialog: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.
+					</p>
+					<a href="#" class="btn btn_primary" data-toggle="modal-dialog" data-target="#exampleModal2">
+						Link to
+					</a>
 				</div>
 			</article>
+
+			<article class="card">
+				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
+				<div class="card-body">
+					<h3 class="card-title">Card title 3</h3>
+					<p class="card-text">Modal div: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
+					<a href="#" id = 'trigger' class="btn btn_primary" data-toggle="modal-div" data-target="#exampleModal3">Link to</a>
+				</div>
+			</article>
+
+			<article class="card">
+				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
+				<div class="card-body">
+					<h3 class="card-title">Card title 4</h3>
+					<p class="card-text">Modal div: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
+					<a href="#" id = 'other' class="btn btn_primary" data-toggle="modal-div" data-target="#exampleModal4">Link to</a>
+				</div>
+			</article>
+
 		</section>
 
-		<section  data-name="modal window">
-			<dialog class="modal" id="exampleModal">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<button class="close" data-close aria-label="close">
-							<span>&times;</span>
-						</button>
-						<div class="modal-header" aria-label="title">
-							<h3 class="modal-title">
-								Modal title
-							</h3>
-						</div>
-						<div class="modal-body">
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, molestias incidunt? Molestias, quia reprehenderit! Nesciunt ex quas adipisci nihil ipsa, aliquam odit similique autem illo voluptatibus sed, laboriosam deserunt dolor?
-						</div>
-						<div class="modal-footer">
-							<button class="btn btn_danger" data-close aria-label="close">Close</button>
-							<button class="btn btn_success"data-close>Save changes</button>
-						</div>
-					</div>
+		<section  data-name="modal-window-dialog">
+			<dialog class="modal" id="exampleModal1">
+				<button class="close" data-close aria-label="close">
+					<span>&times;</span>
+				</button>
+				<div class="modal-header" aria-label="title">
+					<h3 class="modal-title">
+						Modal title dialog 1
+					</h3>
+				</div>
+				<div class="modal-body">
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, molestias incidunt? Molestias, quia reprehenderit! Nesciunt ex quas adipisci nihil ipsa, aliquam odit similique autem illo voluptatibus sed, laboriosam deserunt dolor?
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn_danger" data-close aria-label="close">Close</button>
+					<button class="btn btn_success">Save changes</button>
+				</div>
+			</dialog>
+
+			<dialog class="modal" id="exampleModal2">
+				<button class="close" data-close aria-label="close">
+					<span>&times;</span>
+				</button>
+				<div class="modal-header" aria-label="title">
+					<h3 class="modal-title">
+						Modal title dialog 2
+					</h3>
+				</div>
+				<div class="modal-body">
+					Lorem ipsum 
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn_primary" data-close aria-label="close">Close</button>
+					<button class="btn btn_success">Save changes</button>
 				</div>
 			</dialog>
 		</section>
 
+		<section  data-name="modal-window-div">
+			<div class="modal-div" id="exampleModal3">
+				<div class="modal-div-dialog">
+					<div class="modal-div-content">
+						<button class="close" data-close aria-label="close">
+							<span>&times;</span>
+						</button>
+						<div class="modal-div-header" aria-label="title">
+							<h3 class="modal-div-title">
+								Modal title div 3
+							</h3>
+						</div>
+						<div class="modal-div-body">
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, molestias incidunt? Molestias, quia reprehenderit! Nesciunt ex quas adipisci nihil ipsa, aliquam odit similique autem illo voluptatibus sed, laboriosam deserunt dolor?
+						</div>
+						<div class="modal-div-footer">
+							<button class="btn btn_danger" data-close aria-label="close">Close</button>
+							<button class="btn btn_success">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-div" id="exampleModal4">
+				<div class="modal-div-dialog">
+					<div class="modal-div-content">
+						<button class="close" data-close aria-label="close">
+							<span>&times;</span>
+						</button>
+						<div class="modal-div-header" aria-label="title">
+							<h3 class="modal-div-title">
+								Modal title div 4
+							</h3>
+						</div>
+						<div class="modal-div-body">
+							Lorem 
+						</div>
+						<div class="modal-div-footer">
+							<button class="btn btn_primary" data-close aria-label="close">Close</button>
+							<button class="btn btn_success">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 	</div>
+
+
 	<script src='script.js'></script>
 </body>
 </html>
