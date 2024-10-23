@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container">
-		<section class="m-20" data-name="buttons examples">
+		<section data-name="buttons" class="m-20">
 			<button class ='btn' data-private='false'>btn</button>
 			<button class ='btn btn_primary'>primary</button>
 			<button class ='btn btn_success'>success</button>
@@ -24,7 +24,7 @@
 			<button class ='btn btn_outline-dark'>dark</button>
 		</section>
 
-		<section class="fadeToggle"data-name="fadeToggle section example">
+		<section data-name="fadeToggle p" class="fadeToggle">
 			<button class ='btn btn_primary m-20' id='first'>fade out first text</button>
 			<button class ='btn btn_dark m-20' data-count='second'>fade out second text</button>
 			<button class ='btn btn_warning m-20'>fade out all texts</button>
@@ -36,7 +36,7 @@
 			</div>
 		</section>
 
-		<section class="m-20" data-name="dropdown-menu">
+		<section data-name="dropdown-menu" class="m-20">
 			<div class="wrapper-dropdown" data-comment='for dynamicly generated'></div>
 			<div class="dropdown">
 				<button class="btn btn_primary dropdown-toggle" id='dropdownMenuButton'>Dropdown button</button>
@@ -56,7 +56,7 @@
 			</div>
 		</section>
 
-		<section class="m-20 d-flex f-space-around" data-name="card">
+		<section data-name="card" class="mt-20 d-flex f-space-around" >
 			<article class="card">
 				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
 				<div class="card-body">
@@ -87,14 +87,14 @@
 				</div>
 			</article>
 
-			<article class="card">
+			<!-- <article class="card">
 				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
 				<div class="card-body">
 					<h3 class="card-title">Card title 4</h3>
 					<p class="card-text">Modal div: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
 					<a href="#" id = 'other' class="btn btn_primary" data-toggle="modal-div" data-target="#exampleModal4">Link to</a>
 				</div>
-			</article>
+			</article> -->
 
 		</section>
 
@@ -182,9 +182,40 @@
 			</div>
 		</section>
 
+		<section data-name="tabs" class="mt-20">
+			<div class="tab block-center">
+				<ul class="tab-list" data-tablist role="tablist">
+					<li class="tab-item tab-item_active" role="tab">Tab Label 1</li>
+					<li class="tab-item" role="tab">Tab Label 2</li>
+					<li class="tab-item" role="tab">Tab Label 3</li>
+					<li class="dropdown">
+						<button class="btn btn_primary dropdown-toggle" id='dropdownMenuButton3'>Dropdown button</button>
+						<ul class="dropdown-list" data-toggle-id="dropdownMenuButton3">
+							<li class="dropdown-item"><a href="#">Action #1</a></li>
+							<li class="dropdown-item"><a href="#">Action #2</a></li>
+							<li class="dropdown-item"><a href="#">Action #3</a></li>
+						</ul>
+					<li/>
+				</ul>
+				
+				<div class="tab-panel">
+					<article class="tab-pane tab-pane_active">
+						Content 1
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error voluptatum consequuntur ab facilis ipsam autem consectetur odio veniam nulla, fugiat voluptatem recusandae expedita ratione quis nisi perspiciatis voluptatibus eum praesentium!
+					</article>
+					<article class="tab-pane">
+						Content 2
+						Quasi culpa placeat tempora quisquam. Eius blanditiis minus minima esse. Cum optio blanditiis, maxime animi tenetur modi commodi ullam vel cumque officiis deleniti doloremque nesciunt dolorum quo, temporibus nulla quod.
+					</article>
+					<article class="tab-pane">
+						Content 3
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odio iure beatae dolores dignissimos laboriosam consectetur, eius, impedit voluptates minima harum atque deserunt. Alias voluptate a consequuntur exercitationem sit debitis.
+					</article>
+				</div>
+			</div>
+		</section>
+
 	</div>
-
-
 	<script src='script.js'></script>
 </body>
 </html>

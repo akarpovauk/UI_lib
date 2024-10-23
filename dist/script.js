@@ -78,7 +78,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.closeModal = function ()
 // $('.modal').closeModal();
 
 /** open modal window created with DIALOG element
- * @description open model window by clicking on trigger;
+ * @description open modal window by clicking on trigger;
  * trigger must have attributes data-toggle=“modal” and data-target;
  * data-target should be the same as modal id 
  */
@@ -128,7 +128,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modalDialog = function (
 
 /** create DIALOG window dynamicly
  * запускается на кнопках-триггерах, у триггеров должен быть 
- * атрибут data-target равный id модального окна} param0 
+ * атрибут data-target равный id модального окна 
  */
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.createModalDialog = function ({
   text,
@@ -289,65 +289,83 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modalDiv = function (cre
  * по клику на элементах-триггерах, которое 
  * привязано чётко к этому триггеру
  */
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.createModalDiv = function ({
-  text,
-  btns
-} = {}) {
-  let modal = document.createElement('div');
-  modal.classList.add('modal-div');
+// $.prototype.createModalDiv = function({text, btns} = {}) {
+// 	let modal = document.createElement('div');
+// 	modal.classList.add('modal-div');
 
-  //get attribute from trigger button (string) and remove #
-  modal.setAttribute('id', this[0].getAttribute('data-target').slice(1));
+// 	//get attribute from trigger button (string) and remove #
+// 	modal.setAttribute('id', this[0].getAttribute('data-target').slice(1));
 
-  /** create buttons
-   * btns = {settings: [[text, className = [], close, cb]]}
-   * [j] - номер кнопки
-   */
-  const buttons = [];
-  for (let j = 0; j < btns.settings.length; j++) {
-    let [text, className, close, cb] = btns.settings[j];
-    let btn = document.createElement('button');
-    btn.classList.add('btn', ...className);
-    btn.textContent = text;
+// 	/** create buttons
+// 	 * btns = {settings: [[text, className = [], close, cb]]}
+// 	 * [j] - номер кнопки
+// 	 */
+// 	const buttons = [];
+// 	for (let j = 0; j < btns.settings.length; j++) {
+// 		let [text, className, close, cb] = btns.settings[j]
+// 		let btn = document.createElement('button');
 
-    //атрибут close
-    if (close) {
-      btn.setAttribute('data-close', 'true');
-    }
+// 		btn.classList.add('btn', ...className);
+// 		btn.textContent = text;
 
-    // cb
-    if (cb && typeof cb === 'function') {
-      btn.addEventListener('click', cb);
-    }
-    buttons.push(btn);
+// 		//атрибут close
+// 		if (close) {
+// 			btn.setAttribute('data-close', 'true');
+// 		}
+
+// 		// cb
+// 		if (cb && typeof(cb) === 'function') {
+// 			btn.addEventListener('click', cb);
+// 		}
+// 		buttons.push(btn);
+// 	}
+
+// 	// add content to modal window
+// 	modal.innerHTML = `
+// 		<div class="modal-div-dialog">
+// 			<div class="modal-div-content">
+// 				<button class="close" data-close aria-label="close">
+// 					<span>&times;</span>
+// 				</button>
+// 				<div class="modal-div-header" aria-label="title">
+// 					<h3 class="modal-div-title">
+// 						${text.title}
+// 					</h3>
+// 				</div>
+// 				<div class="modal-div-body">${text.body}</div>
+// 				<div class="modal-div-footer"></div>
+// 			</div>
+// 		</div>
+// 	`;
+
+// 	// add buttons to footer
+// 	modal.querySelector('.modal-div-footer').append(...buttons);
+// 	document.body.appendChild(modal);
+
+// 	// вызов модального окна
+// 	$(this[0]).modalDiv(true);
+// 	$(this[0].getAttribute('data-target')).fadeIn(500);
+// };
+
+/***/ }),
+
+/***/ "./src/js/lib/components/tab.js":
+/*!**************************************!*\
+  !*** ./src/js/lib/components/tab.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.tab = function () {
+  for (let i = 0; i < this.length; i++) {
+    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).on('click', () => {
+      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).addClass('tab-item_active').siblings().removeClass('tab-item_active').closest('.tab').find('.tab-pane').removeClass('tab-pane_active').eq((0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).index()).addClass('tab-pane_active');
+    });
   }
-
-  // add content to modal window
-  modal.innerHTML = `
-		<div class="modal-div-dialog">
-			<div class="modal-div-content">
-				<button class="close" data-close aria-label="close">
-					<span>&times;</span>
-				</button>
-				<div class="modal-div-header" aria-label="title">
-					<h3 class="modal-div-title">
-						${text.title}
-					</h3>
-				</div>
-				<div class="modal-div-body">${text.body}</div>
-				<div class="modal-div-footer"></div>
-			</div>
-		</div>
-	`;
-
-  // add buttons to footer
-  modal.querySelector('.modal-div-footer').append(...buttons);
-  document.body.appendChild(modal);
-
-  // вызов модального окна
-  (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[0]).modalDiv(true);
-  (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[0].getAttribute('data-target')).fadeIn(500);
 };
+(0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-tablist] .tab-item').tab();
 
 /***/ }),
 
@@ -402,6 +420,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_effects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/effects */ "./src/js/lib/modules/effects.js");
 /* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/lib/components/dropdown.js");
 /* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/modal */ "./src/js/lib/components/modal.js");
+/* harmony import */ var _components_tab__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/tab */ "./src/js/lib/components/tab.js");
+
 
 
 
@@ -882,44 +902,41 @@ __webpack_require__.r(__webpack_exports__);
 // $('button').fadeOut(2800);
 // setTimeout(()=> {$('button').fadeIn(1800)}, 4000);
 
-//buttons hide show text
+// buttons hide show text
 
-// $('#first').on('click', ()=> {
-// 	$('section div').eq(0).fadeToggle(800);
-// }) 
-
-// $('[data-count="second"]').on('click', ()=> {
-// 	$('section div').eq(1).fadeToggle(800);
-// }) 
-
-// $('section.fadeToggle button').eq(2).on('click', ()=> {
-// 	$('section div.w-500px').fadeToggle(800);
-// }) 
-
-// console.log($('.dropdown-toggle').getAttributeValue('id'));
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('#first').on('click', () => {
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section div').eq(0).fadeToggle(800);
+});
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-count="second"]').on('click', () => {
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section div').eq(1).fadeToggle(800);
+});
+(0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section.fadeToggle button').eq(2).on('click', () => {
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('section div.w-500px').fadeToggle(800);
+});
+console.log((0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.dropdown-toggle').getAttributeValue('id'));
 
 //dropdown menu dynamicly generated:
-/* $('.wrapper-dropdown').html(
-	`
-	<div class="dropdown">
-		<button class="btn btn_primary dropdown-toggle" id='dropdownMenuButton'>Dropdown button</button>
-		<ul class="dropdown-list" data-toggle-id="dropdownMenuButton">
-			<li class="dropdown-item"><a href="#">Action #1</a></li>
-			<li class="dropdown-item"><a href="#">Action #2</a></li>
-			<li class="dropdown-item"><a href="#">Action #3</a></li>
-		</ul>
-	</div>
-	<div class="dropdown">
-		<button class="btn btn_primary dropdown-toggle" id='dropdownMenu2Button'>Dropdown button</button>
-		<ul class="dropdown-list" data-toggle-id="dropdownMenu2Button">
-			<li class="dropdown-item"><a href="#">Action #1</a></li>
-			<li class="dropdown-item"><a href="#">Action #2</a></li>
-			<li class="dropdown-item"><a href="#">Action #3</a></li>
-		</ul>
-	</div>
-	`
-)
-$('.dropdown-toggle').dropdown(); */
+// $('.wrapper-dropdown').html(
+// 	`
+// 	<div class="dropdown">
+// 		<button class="btn btn_primary dropdown-toggle" id='dropdownMenuButton'>Dropdown button</button>
+// 		<ul class="dropdown-list" data-toggle-id="dropdownMenuButton">
+// 			<li class="dropdown-item"><a href="#">Action #1</a></li>
+// 			<li class="dropdown-item"><a href="#">Action #2</a></li>
+// 			<li class="dropdown-item"><a href="#">Action #3</a></li>
+// 		</ul>
+// 	</div>
+// 	<div class="dropdown">
+// 		<button class="btn btn_primary dropdown-toggle" id='dropdownMenu2Button'>Dropdown button</button>
+// 		<ul class="dropdown-list" data-toggle-id="dropdownMenu2Button">
+// 			<li class="dropdown-item"><a href="#">Action #1</a></li>
+// 			<li class="dropdown-item"><a href="#">Action #2</a></li>
+// 			<li class="dropdown-item"><a href="#">Action #3</a></li>
+// 		</ul>
+// 	</div>
+// 	`
+// )
+// $('.dropdown-toggle').dropdown();
 
 //create modal DIV window dynamicly
 // $('[data-toggle="modal-div"]').on('click', (e) => {
@@ -959,7 +976,6 @@ $('.dropdown-toggle').dropdown(); */
 
 // create modal DIALOG window dynamicly
 // $('[data-toggle="modal-dialog"]').on('click', (e) => {
-// 	// console.log($(e.target));
 // 	$(e.target).createModalDialog({
 // 		text: {
 // 			title: 'Modal dialog title',

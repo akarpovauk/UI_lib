@@ -41,7 +41,7 @@ $.prototype.closeModal = function() {
 // $('.modal').closeModal();
 
 /** open modal window created with DIALOG element
- * @description open model window by clicking on trigger;
+ * @description open modal window by clicking on trigger;
  * trigger must have attributes data-toggle=“modal” and data-target;
  * data-target should be the same as modal id 
  */
@@ -92,7 +92,7 @@ $('[data-toggle="modal-dialog"]').modalDialog();
 
 /** create DIALOG window dynamicly
  * запускается на кнопках-триггерах, у триггеров должен быть 
- * атрибут data-target равный id модального окна} param0 
+ * атрибут data-target равный id модального окна 
  */
 $.prototype.createModalDialog = function({text, btns} = {}) {
 
@@ -253,61 +253,61 @@ $('[data-toggle="modal-div"]').modalDiv();
  * по клику на элементах-триггерах, которое 
  * привязано чётко к этому триггеру
  */
-$.prototype.createModalDiv = function({text, btns} = {}) {
-	let modal = document.createElement('div');
-	modal.classList.add('modal-div');
+// $.prototype.createModalDiv = function({text, btns} = {}) {
+// 	let modal = document.createElement('div');
+// 	modal.classList.add('modal-div');
 
-	//get attribute from trigger button (string) and remove #
-	modal.setAttribute('id', this[0].getAttribute('data-target').slice(1));
+// 	//get attribute from trigger button (string) and remove #
+// 	modal.setAttribute('id', this[0].getAttribute('data-target').slice(1));
 
-	/** create buttons
-	 * btns = {settings: [[text, className = [], close, cb]]}
-	 * [j] - номер кнопки
-	 */
-	const buttons = [];
-	for (let j = 0; j < btns.settings.length; j++) {
-		let [text, className, close, cb] = btns.settings[j]
-		let btn = document.createElement('button');
+// 	/** create buttons
+// 	 * btns = {settings: [[text, className = [], close, cb]]}
+// 	 * [j] - номер кнопки
+// 	 */
+// 	const buttons = [];
+// 	for (let j = 0; j < btns.settings.length; j++) {
+// 		let [text, className, close, cb] = btns.settings[j]
+// 		let btn = document.createElement('button');
 
-		btn.classList.add('btn', ...className);
-		btn.textContent = text;
+// 		btn.classList.add('btn', ...className);
+// 		btn.textContent = text;
 
-		//атрибут close
-		if (close) {
-			btn.setAttribute('data-close', 'true');
-		}
+// 		//атрибут close
+// 		if (close) {
+// 			btn.setAttribute('data-close', 'true');
+// 		}
 
-		// cb
-		if (cb && typeof(cb) === 'function') {
-			btn.addEventListener('click', cb);
-		}
-		buttons.push(btn);
-	}
+// 		// cb
+// 		if (cb && typeof(cb) === 'function') {
+// 			btn.addEventListener('click', cb);
+// 		}
+// 		buttons.push(btn);
+// 	}
 
-	// add content to modal window
-	modal.innerHTML = `
-		<div class="modal-div-dialog">
-			<div class="modal-div-content">
-				<button class="close" data-close aria-label="close">
-					<span>&times;</span>
-				</button>
-				<div class="modal-div-header" aria-label="title">
-					<h3 class="modal-div-title">
-						${text.title}
-					</h3>
-				</div>
-				<div class="modal-div-body">${text.body}</div>
-				<div class="modal-div-footer"></div>
-			</div>
-		</div>
-	`;
+// 	// add content to modal window
+// 	modal.innerHTML = `
+// 		<div class="modal-div-dialog">
+// 			<div class="modal-div-content">
+// 				<button class="close" data-close aria-label="close">
+// 					<span>&times;</span>
+// 				</button>
+// 				<div class="modal-div-header" aria-label="title">
+// 					<h3 class="modal-div-title">
+// 						${text.title}
+// 					</h3>
+// 				</div>
+// 				<div class="modal-div-body">${text.body}</div>
+// 				<div class="modal-div-footer"></div>
+// 			</div>
+// 		</div>
+// 	`;
 
-	// add buttons to footer
-	modal.querySelector('.modal-div-footer').append(...buttons);
-	document.body.appendChild(modal);
+// 	// add buttons to footer
+// 	modal.querySelector('.modal-div-footer').append(...buttons);
+// 	document.body.appendChild(modal);
 
-	// вызов модального окна
-	$(this[0]).modalDiv(true);
-	$(this[0].getAttribute('data-target')).fadeIn(500);
-};
+// 	// вызов модального окна
+// 	$(this[0]).modalDiv(true);
+// 	$(this[0].getAttribute('data-target')).fadeIn(500);
+// };
 

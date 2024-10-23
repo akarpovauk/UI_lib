@@ -339,6 +339,43 @@ html {
   padding: 15px;
 }
 
+.tab {
+  max-width: 700px;
+}
+.tab-list {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px 4px 0 0;
+}
+.tab-item {
+  font-size: 18px;
+  line-height: 27px;
+  padding: 10px 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.tab-item:last-child {
+  border-right: none;
+}
+.tab-item_active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.tab-pane {
+  display: none;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+.tab-pane_active {
+  display: block;
+}
+
 .text-center {
   text-align: center;
 }
