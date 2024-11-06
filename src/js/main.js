@@ -57,7 +57,7 @@ $('section.fadeToggle button').eq(2).on('click', ()=> {
 	$('section div.w-500px').fadeToggle(800);
 }) 
 
-console.log($('.dropdown-toggle').getAttributeValue('id'));
+// console.log($('.dropdown-toggle').getAttributeValue('id'));
 
 //dropdown menu dynamicly generated:
 // $('.wrapper-dropdown').html(
@@ -152,3 +152,74 @@ console.log($('.dropdown-toggle').getAttributeValue('id'));
 // 		}
 // 	})
 // });
+
+
+$('#carousel_1').createCarousel(
+	[
+		{
+			src: 'img/morning.webp',
+			alt: 'morning'
+		},
+		{ 	
+			src: 'img/day.jpg',
+			alt: 'day'
+		},
+		{ 	
+			src: 'img/evening.jpeg',
+			alt: 'day'
+		},
+		{ 	
+			src: 'img/night.webp',
+			alt: 'day'
+		},
+		{ 	
+			src: 'img/image1.jpeg',
+			alt: 'cozy picture'
+		},
+		{ 	
+			src: 'img/image2.avif',
+			alt: 'cozy image'
+		}
+	],
+	{
+		width: '500px',
+		height: '350px'
+	},
+	true,
+	3000,
+	true
+);
+
+$('#carousel_2').createCarousel(
+	[
+		{
+			src: 'img/morning2.jpg',
+			alt: 'morning'
+		},
+		{ 	
+			src: 'img/day2.webp',
+			alt: 'day'
+		},
+		{ 	
+			src: 'img/evening2.png',
+			alt: 'day'
+		},
+		{
+			src: 'img/night2.jpg',
+			alt: 'night'
+		}
+	],
+	{
+		width: '900px',
+		height: '500px'
+	}
+);
+
+
+
+
+
+
+
+
+

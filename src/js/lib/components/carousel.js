@@ -1,6 +1,10 @@
 import $ from '../core';
 
-$.prototype.carousel = function() {
+$.prototype.carousel = function (
+	autoplay = false,
+	time = 0,
+	pauseOnHover = false
+) {
 	for (let i = 0; i < this.length; i++) {
 		const width = window.getComputedStyle(this[i].querySelector('.carousel-inner')).width;
 		const slidesField = this[i].querySelector('.carousel-slides');
@@ -18,7 +22,41 @@ $.prototype.carousel = function() {
 		let offset = 0;
 		let widthNum = +width.replace(/\D/g, '');
 		let slideIndex = 0;
-		
+
+		function showSlide() {
+			slidesField.style.transform = `translateX(-${offset}px)`;
+			slideIndex = offset/widthNum;
+			dots.forEach(dot => dot.classList.remove('active'));
+			dots[slideIndex].classList.add('active');
+		}
+
+		if (autoplay) {
+			let intervalId = setInterval(() => {
+				if (offset == widthNum * (slides.length - 1)) {
+					offset = 0;
+				} else {
+					offset += widthNum;
+				}
+				showSlide()
+			},time);
+
+			if (pauseOnHover) {
+				$(this[i]).on('mouseenter', () => {
+					clearInterval(intervalId);
+				});
+				$(this[i]).on('mouseleave', () => {
+					intervalId = setInterval(() => {
+						if (offset == widthNum * (slides.length - 1)) {
+							offset = 0;
+						} else {
+							offset += widthNum;
+						}
+						showSlide()
+					},time);
+				});
+			}
+		}
+
 		//переключение слайда by clicking right arrow (next)
 		$(this[i].querySelector('[data-slide="next"]')).click((e) => {
 			e.preventDefault();
@@ -27,17 +65,7 @@ $.prototype.carousel = function() {
 			} else {
 				offset += widthNum;
 			}
-
-			slidesField.style.transform = `translateX(-${offset}px)`;
-
-			// if (slideIndex == slides.length - 1) {
-			// 	slideIndex = 0;
-			// } else {
-			// 	slideIndex ++;
-			// }
-			slideIndex = offset/widthNum;
-			dots.forEach(dot => dot.classList.remove('active'));
-			dots[slideIndex].classList.add('active');
+			showSlide();
 		});
 
 		//переключение слайда by clicking left arrow (prev)
@@ -48,17 +76,7 @@ $.prototype.carousel = function() {
 			} else {
 				offset -= widthNum;
 			}
-
-			slidesField.style.transform = `translateX(-${offset}px)`;
-
-			// if (slideIndex == 0) {
-			// 	slideIndex = slides.length - 1;
-			// } else {
-			// 	slideIndex --;
-			// }
-			slideIndex = offset/widthNum;
-			dots.forEach(dot => dot.classList.remove('active'));
-			dots[slideIndex].classList.add('active');
+			showSlide();
 		});
 		//indicators
 		const sliderId = this[i].getAttribute('id');
@@ -67,11 +85,66 @@ $.prototype.carousel = function() {
 
 			// slideIndex = slideTo;
 			offset = widthNum * slideTo;
-			slidesField.style.transform = `translateX(-${offset}px)`;
-			dots.forEach(dot => dot.classList.remove('active'));
-			dots[slideTo].classList.add('active');
+			showSlide();
 		});
 	}
 };
 
-$('.carousel').carousel();
+$('#carousel_primary').carousel(true, 1000, true);
+
+$.prototype.createCarousel = function(images = [], sizes={}, autoplay, time, pauseOnHover) {
+	for (let i = 0; i < this.length; i++) {
+		const carousel = this[i];
+
+		carousel.innerHTML = `
+			<ol class="carousel-indicators">
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-slides">
+				</div>
+			</div>
+			<a href="#" class="carousel-prev" data-slide='prev'>
+				<span class="carousel-prev-icon">&lt;</span>
+			</a>
+			<a href="#" class="carousel-next" data-slide='next'>
+				<span class="carousel-next-icon">&gt;</span>
+			</a>
+		`;
+
+		carousel.style.width = sizes.width;
+		carousel.querySelector('.carousel-inner').style.height = sizes.height;
+		
+		const indicators = carousel.querySelector('.carousel-indicators');
+		function createIndicators(j) {
+			
+			const dot = document.createElement('li');
+			dot.setAttribute('data-slide-to', j);
+			if (j == 0) {
+				dot.classList.add('active');
+			}
+
+			indicators.appendChild(dot);
+		}
+
+		const slides = carousel.querySelector('.carousel-slides');
+		function createSlides(image) {
+			const item = document.createElement('div');
+			const img = document.createElement('img');
+
+			item.classList.add('carousel-item');
+			img.setAttribute('src', image.src);
+			img.setAttribute('alt', image.alt);
+			item.append(img);
+
+			slides.appendChild(item);
+		}
+
+		images.forEach((image, j) => {
+			createIndicators(j);
+			createSlides(image);
+		});
+
+		$(this[i]).carousel(autoplay, time, pauseOnHover);
+	}
+};
+
