@@ -215,7 +215,15 @@ $('#carousel_2').createCarousel(
 	}
 );
 
+$().get('https://jsonplaceholder.typicode.com/posts/1')
+	.then(res => console.log(res));
 
+$().post('https://jsonplaceholder.typicode.com/posts', {
+	title: 'my title',
+	body: 'something',
+	userId: 101,
+}, 'json')
+.then(res => console.log(res));
 
 
 
