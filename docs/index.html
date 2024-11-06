@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<section data-name="buttons" class="m-20">
+			<button class ='btn' data-private='false'>btn</button>
+			<button class ='btn btn_primary'>primary</button>
+			<button class ='btn btn_success'>success</button>
+			<button class ='btn btn_danger'>danger</button>
+			<button class ='btn btn_warning'>warning</button>
+			<button class ='btn btn_dark'>dark</button>
+			<hr class="mt-10 mb-10">
+			<button class ='btn btn_outline-primary'>primary</button>
+			<button class ='btn btn_outline-success'>success</button>
+			<button class ='btn btn_outline-danger'>danger</button>
+			<button class ='btn btn_outline-warning'>warning</button>
+			<button class ='btn btn_outline-dark'>dark</button>
+		</section>
+
+		<section data-name="fadeToggle p" class="fadeToggle">
+			<button class ='btn btn_primary m-20' id='first'>fade out first text</button>
+			<button class ='btn btn_dark m-20' data-count='second'>fade out second text</button>
+			<button class ='btn btn_warning m-20'>fade out all texts</button>
+			<div class="w-500px block-center mt-20 text-color-primary">
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet nam excepturi suscipit beatae voluptatem doloremque debitis corrupti quaerat 
+			</div>
+			<div class="w-500px block-center mt-20">
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet nam excepturi suscipit beatae voluptatem doloremque debitis corrupti quaerat repellendus ipsum autem quam sed quibusdam, nobis magni 
+			</div>
+		</section>
+
+		<section data-name="dropdown-menu" class="m-20">
+			<div class="wrapper-dropdown" data-comment='for dynamicly generated'></div>
+			<div class="dropdown">
+				<button class="btn btn_primary dropdown-toggle" id='dropdownMenuButton'>Dropdown button</button>
+				<ul class="dropdown-list" data-toggle-id="dropdownMenuButton">
+					<li class="dropdown-item"><a href="#">Action #1</a></li>
+					<li class="dropdown-item"><a href="#">Action #2</a></li>
+					<li class="dropdown-item"><a href="#">Action #3</a></li>
+				</ul>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn_primary dropdown-toggle" id='dropdownMenu2Button'>Dropdown button</button>
+				<ul class="dropdown-list" data-toggle-id="dropdownMenu2Button">
+					<li class="dropdown-item"><a href="#">Action #1</a></li>
+					<li class="dropdown-item"><a href="#">Action #2</a></li>
+					<li class="dropdown-item"><a href="#">Action #3</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<section data-name="card" class="mt-20 d-flex f-space-around" >
+			<article class="card">
+				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
+				<div class="card-body">
+					<h3 class="card-title">Card title 1</h3>
+					<p class="card-text"> Modal dialog: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
+					<a href="#" class="btn btn_primary test" data-toggle="modal-dialog" data-target="#exampleModal1">Link to</a>
+				</div>
+			</article>
+
+			<article class="card">
+				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
+				<div class="card-body">
+					<h3 class="card-title">Card title 2</h3>
+					<p class="card-text">Modal dialog: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.
+					</p>
+					<a href="#" class="btn btn_primary" data-toggle="modal-dialog" data-target="#exampleModal2">
+						Link to
+					</a>
+				</div>
+			</article>
+
+			<article class="card">
+				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
+				<div class="card-body">
+					<h3 class="card-title">Card title 3</h3>
+					<p class="card-text">Modal div: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
+					<a href="#" id = 'trigger' class="btn btn_primary" data-toggle="modal-div" data-target="#exampleModal3">Link to</a>
+				</div>
+			</article>
+
+			<!-- <article class="card">
+				<img class="card-img" src="https://images.macrumors.com/t/ChB5ReJcBGKsMQLumaYjr3mFaHk=/1600x0/article-new/2023/05/icloud-photos.jpg" alt="photo">
+				<div class="card-body">
+					<h3 class="card-title">Card title 4</h3>
+					<p class="card-text">Modal div: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt praesentium dolores labore.</p>
+					<a href="#" id = 'other' class="btn btn_primary" data-toggle="modal-div" data-target="#exampleModal4">Link to</a>
+				</div>
+			</article> -->
+
+		</section>
+
+		<section  data-name="modal-window-dialog">
+			<dialog class="modal" id="exampleModal1">
+				<button class="close" data-close aria-label="close">
+					<span>&times;</span>
+				</button>
+				<div class="modal-header" aria-label="title">
+					<h3 class="modal-title">
+						Modal title dialog 1
+					</h3>
+				</div>
+				<div class="modal-body">
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, molestias incidunt? Molestias, quia reprehenderit! Nesciunt ex quas adipisci nihil ipsa, aliquam odit similique autem illo voluptatibus sed, laboriosam deserunt dolor?
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn_danger" data-close aria-label="close">Close</button>
+					<button class="btn btn_success">Save changes</button>
+				</div>
+			</dialog>
+
+			<dialog class="modal" id="exampleModal2">
+				<button class="close" data-close aria-label="close">
+					<span>&times;</span>
+				</button>
+				<div class="modal-header" aria-label="title">
+					<h3 class="modal-title">
+						Modal title dialog 2
+					</h3>
+				</div>
+				<div class="modal-body">
+					Lorem ipsum 
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn_primary" data-close aria-label="close">Close</button>
+					<button class="btn btn_success">Save changes</button>
+				</div>
+			</dialog>
+		</section>
+
+		<section  data-name="modal-window-div">
+			<div class="modal-div" id="exampleModal3">
+				<div class="modal-div-dialog">
+					<div class="modal-div-content">
+						<button class="close" data-close aria-label="close">
+							<span>&times;</span>
+						</button>
+						<div class="modal-div-header" aria-label="title">
+							<h3 class="modal-div-title">
+								Modal title div 3
+							</h3>
+						</div>
+						<div class="modal-div-body">
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, molestias incidunt? Molestias, quia reprehenderit! Nesciunt ex quas adipisci nihil ipsa, aliquam odit similique autem illo voluptatibus sed, laboriosam deserunt dolor?
+						</div>
+						<div class="modal-div-footer">
+							<button class="btn btn_danger" data-close aria-label="close">Close</button>
+							<button class="btn btn_success">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-div" id="exampleModal4">
+				<div class="modal-div-dialog">
+					<div class="modal-div-content">
+						<button class="close" data-close aria-label="close">
+							<span>&times;</span>
+						</button>
+						<div class="modal-div-header" aria-label="title">
+							<h3 class="modal-div-title">
+								Modal title div 4
+							</h3>
+						</div>
+						<div class="modal-div-body">
+							Lorem 
+						</div>
+						<div class="modal-div-footer">
+							<button class="btn btn_primary" data-close aria-label="close">Close</button>
+							<button class="btn btn_success">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section data-name="tabs" class="mt-20">
+			<div class="tab block-center">
+				<ul class="tab-list" data-tablist role="tablist">
+					<li class="tab-item tab-item_active" role="tab">Tab Label 1</li>
+					<li class="tab-item" role="tab">Tab Label 2</li>
+					<li class="tab-item" role="tab">Tab Label 3</li>
+					<li class="dropdown">
+						<button class="btn btn_primary dropdown-toggle" id='dropdownMenuButton3'>Dropdown button</button>
+						<ul class="dropdown-list" data-toggle-id="dropdownMenuButton3">
+							<li class="dropdown-item"><a href="#">Action #1</a></li>
+							<li class="dropdown-item"><a href="#">Action #2</a></li>
+							<li class="dropdown-item"><a href="#">Action #3</a></li>
+						</ul>
+					<li/>
+				</ul>
+				
+				<div class="tab-panel">
+					<article class="tab-pane tab-pane_active">
+						Content 1
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error voluptatum consequuntur ab facilis ipsam autem consectetur odio veniam nulla, fugiat voluptatem recusandae expedita ratione quis nisi perspiciatis voluptatibus eum praesentium!
+					</article>
+					<article class="tab-pane">
+						Content 2
+						Quasi culpa placeat tempora quisquam. Eius blanditiis minus minima esse. Cum optio blanditiis, maxime animi tenetur modi commodi ullam vel cumque officiis deleniti doloremque nesciunt dolorum quo, temporibus nulla quod.
+					</article>
+					<article class="tab-pane">
+						Content 3
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odio iure beatae dolores dignissimos laboriosam consectetur, eius, impedit voluptates minima harum atque deserunt. Alias voluptate a consequuntur exercitationem sit debitis.
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section data-name="accordion" class="mt-20 mb-20">
+			<div class="accordion block-center">
+				<h3 class="accordion-summary">
+					<span id="accordion1" aria-expanded="false" aria-controls="panel1">
+						Collapse first element
+					</span>
+				</h3>
+				<article id= "panel1" class="accordion-content" aria-labelledby="accordion1">
+					<div class="accordion-inner">
+						1 first em, ipsum dolor sit amet consectetur adipisicing elit. Recusandae consequatur ullam exercitationem veniam eos facilis corporis  mollitia adipisci. Enim et reiciendis quasi adipisci tempore! Rem consequuntur voluptatibus repellat autem fuga.
+					</div>
+				</article>
+				<h3 class="accordion-summary">
+					<span>Collapse second element</span>
+				</h3>
+				<article class="accordion-content">
+					<div class="accordion-inner">
+						2 second, ipsum dolor sit amet consectetur adipisicing elit. Recusandae consequatur ullam exercitationem veniam eos facilis corporis mollitia adipisci. Enim et reiciendis quasi adipisci tempore! Rem consequuntur voluptatibus repellat autem fuga.
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section data-name="accordion-semantic" class="mt-20 mb-20">
+			<div class="accordion-semantic block-center">
+				<details>
+					<summary id="accordion1">What is an accordion?</summary>
+					<div id="panel1" class="accordion-semantic-content">
+						<p>An accordion is a UI component that allows users to expand and collapse sections of content.</p>
+					</div>
+				</details>
+
+				<details>
+					<summary id="accordion2">How does it improve user experience?</summary>
+					<div id="panel2" class="accordion-semantic-content">
+						<p>Accordions help reduce clutter and make information easier to digest, enhancing the overall user experience.</p>
+					</div>
+				</details>
+			</div>
+		</section>
+
+		<section data-name="carousel" class="mt-20 mb-20">
+			<div class="carousel" id="carousel_primary">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0"></li>
+					<li data-slide-to="1"></li>
+					<li data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-slides">
+						<div class="carousel-item">
+							<img src="img/picture2.jpg" alt="window">
+						</div>
+						<div class="carousel-item">
+							<img src="img/picture3.jpg" alt="window">
+						</div>
+						<div class="carousel-item">
+							<img src="img/picture4.jpg" alt="window">
+						</div>
+					</div>
+				</div>
+				<a href="#" class="carousel-prev" data-slide='prev'>
+					<span class="carousel-prev-icon">&lt;</span>
+				</a>
+				<a href="#" class="carousel-next" data-slide='next'>
+					<span class="carousel-next-icon">&gt;</span>
+				</a>
+			</div>
+		</section>
+
+		<section data-name="carousel-dynamic" class="mt-20 mb-20">
+			<div class="carousel" id="carousel_1"></div>
+		</section>
+
+		<section data-name="carousel-dynamic" class="mt-20 mb-20">
+			<div class="carousel" id="carousel_2"></div>
+		</section>
+
+	</div>
+	<script src='script.js'></script>
+</body>
+</html>
